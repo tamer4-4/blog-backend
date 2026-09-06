@@ -5,7 +5,7 @@
 **A secure, robust RESTful API for a blogging platform built with Java, Spring Boot, and Spring Security.**
 
 [![Java](https://img.shields.io/badge/Java-21%2B-orange?style=flat-square&logo=openjdk)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.x-brightgreen?style=flat-square&logo=springboot)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=flat-square&logo=springboot)](https://spring.io/projects/spring-boot)
 [![Security](https://img.shields.io/badge/Security-JWT%20%26%20Spring%20Security-blue?style=flat-square&logo=jsonwebtokens)](https://jwt.io/)
 [![Database](https://img.shields.io/badge/Database-MySQL-lightgrey?style=flat-square&logo=mysql)](https://www.mysql.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
@@ -15,16 +15,40 @@
 ---
 
 ## 📌 Overview
-A production-ready backend application designed to handle blog posts, user comments, and secure authentication following a clean layered architecture.
+A production-ready backend application designed to handle blog posts, user comments, and secure authentication following a clean layered architecture. 
+
+### ✨ Key Features
+* **Secure Authentication & Authorization:** Implemented using Spring Security and JSON Web Tokens (JWT).
+* **Data Validation:** Robust request payload validation using Jakarta Bean Validation (`@Valid`, `@NotNull`, `@Size`, etc.).
+* **Pagination & Sorting:** Efficient data retrieval for posts and comments using Spring Data JPA `Pageable`.
+* **Relational Database:** MySQL persistence with proper entity mappings and relationships.
 
 ---
 
 ## 🔌 API Endpoints Reference
 
-### Login & Auth Module
+### 🔐 Login & Auth Module
 * `POST /api/auth/register` : Register a new user account
 * `POST /api/auth/login` : Authenticate user with valid credentials & return JWT token
 * `POST /api/auth/logout` : Logout user based on session token
+
+#### Register Example:
+**Request (`POST /api/auth/register`):**
+```json
+{
+  "username": "test",
+  "email": "test22@gmail.com",
+  "password": "123456",
+  "role": "ROLE_USER"
+}
+```
+### `Response`:
+```Response
+ User registered successfully!
+```
+---
+
+## 🔌 API Endpoints Reference
 
 ### Posts Module
 * `GET /api/posts` : Retrieve all blog posts
@@ -53,16 +77,5 @@ spring.datasource.url=jdbc:mysql://localhost:3306/NameDB
 spring.datasource.username=root
 spring.datasource.password=YOUR_PASSWORD
 ```
-### `Request`:
-```Request
-  {
-    "username" :"test",
-    "email" : "test22@gmail.com",
-    "password": 123456,
-    "role": "ROLE_USER"
-  }
-```
-### `Response`:
-```Response
- User registered successfully!
-```
+
+
