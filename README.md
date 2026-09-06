@@ -19,6 +19,7 @@ A production-ready backend application designed to handle blog posts, user comme
 
 ### ✨ Key Features
 * **Secure Authentication & Authorization:** Implemented using Spring Security and JSON Web Tokens (JWT).
+* **DTO & Mapper Pattern:** Utilized Data Transfer Objects (DTOs) to decouple the database entities from API request/response payloads, ensuring secure and clean data transfer using dedicated Mappers.
 * **Data Validation:** Robust request payload validation using Jakarta Bean Validation (`@Valid`, `@NotNull`, `@Size`, etc.).
 * **Pagination & Sorting:** Efficient data retrieval for posts and comments using Spring Data JPA `Pageable`.
 * **Relational Database:** MySQL persistence with proper entity mappings and relationships.
